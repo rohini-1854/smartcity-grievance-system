@@ -24,24 +24,30 @@ console.log('authRoutes:', typeof authRoutes);
 console.log('messageRoutes:', typeof messageRoutes);
 console.log('geoRoutes:', typeof geoRoutes);
 
-const app = express();
-
 // Middleware
-const allowedOrigins = [
-  'http://localhost:3000', 
-  'http://localhost:8081', 
-  'http://192.168.29.225:19006',
-  process.env.FRONTEND_URL // Will be set in production
-];
+const app = express();
 
 app.use(cors({
   origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl requests)
+    const allowedOrigins = [
+      'http://localhost:3000', 
+      'http://localhost:8081', 
+      process.env.FRONTEND_URL
+    ];
+    
+    // Allow requests with no origin (like mobile apps)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV === 'development') {
-      return callback(null, true);
+    
+    // Check if origin matches or is a vercel.app subdomain
+    const isAllowed = allowedOrigins.includes(origin) || 
+                      origin.endsWith('.vercel.app') || 
+                      process.env.NODE_ENV === 'development';
+                      
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'));
     }
-    return callback(new Error('The CORS policy for this site does not allow access from the specified Origin.'));
   },
   methods: ['GET','POST','PUT','DELETE','OPTIONS'],
   credentials: true,
