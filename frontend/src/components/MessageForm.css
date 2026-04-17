@@ -1,0 +1,67 @@
+/* MessageForm.css */
+
+.message-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #f1f5f9; /* light grey-blue */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.message-container h3 {
+  text-align: center;
+  color: #1d3557; /* header color */
+  margin-bottom: 20px;
+}
+
+.message-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message-container input,
+.message-container textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.message-container input:focus,
+.message-container textarea:focus {
+  border-color: #457b9d;
+  box-shadow: 0 0 5px rgba(69, 123, 157, 0.4);
+  outline: none;
+}
+
+.message-container textarea {
+  min-height: 100px;
+}
+
+.message-container button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1d3557;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.message-container button:hover {
+  background-color: #457b9d;
+  transform: translateY(-2px);
+}
+
+.success-text {
+  margin-top: 15px;
+  color: green;
+  text-align: center;
+  font-weight: bold;
+}

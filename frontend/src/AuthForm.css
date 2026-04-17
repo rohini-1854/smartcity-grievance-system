@@ -1,0 +1,287 @@
+/* Common Wrapper */
+.auth-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #0a5d7d, #0d5988);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 50px;
+  width: 100%;
+}
+
+/* Role Switch Buttons */
+.role-switch {
+  margin-bottom: 20px;
+}
+.role-switch button {
+  background: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.role-switch button.active {
+  background: #1d3557;
+  color: #fff;
+}
+.role-switch button:hover {
+  background: #457b9d;
+  color: #fff;
+}
+
+/* User Container (Overlay Animation) */
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+              0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 50%;
+  min-height: 480px;
+  display: flex;
+}
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+.sign-in-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+.sign-up-container {
+  left: 0;
+  width: 50%;
+  opacity: 1;   /* ✅ always visible */
+  z-index: 2;
+}
+
+.container.right-panel-active .sign-up-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+.container.right-panel-active .sign-in-container {
+  transform: translateX(100%);
+}
+@keyframes show {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Overlay */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+.overlay {
+  background: linear-gradient(to right, #457b9d, #1d3557);
+  color: white;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transition: transform 0.6s ease-in-out;
+}
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+.overlay-left { left: 0; transform: translateX(-20%); }
+.container.right-panel-active .overlay-left { transform: translateX(0); }
+.overlay-right { right: 0; }
+.container.right-panel-active .overlay-right { transform: translateX(20%); }
+.ghost {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.ghost:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Forms */
+form {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+form h1 { margin-bottom: 20px; color: #1d3557; }
+form input {
+  background: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 5px;
+}
+form button {
+  border-radius: 20px;
+  border: none;
+  background-color: #1d3557;
+  color: #fff;
+  padding: 12px 45px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+}
+form button:hover { background-color: #2a74a2; }
+
+/* Worker Container */
+.worker-container {
+  display: flex;
+  width: 900px;
+  height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 25px rgba(0,0,0,0.15);
+}
+.worker-left, .worker-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.worker-left form { width: 80%; }
+.worker-right {
+  background:rgba(12,49,73,0.95);
+  text-align: center;
+  color: #fff;
+}
+.worker-right img {
+  max-width: 390px;
+  margin-bottom: 20px;
+}
+.worker-right h2 { color: #ccc; }
+.worker-right p { color: #ccc;  }
+
+/* Admin Container */
+.admin-container {
+  display: flex;
+  width: 900px;
+  height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 25px rgba(0,0,0,0.15);
+}
+.admin-left, .admin-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.admin-left {  }
+.admin-form { width: 80%; }
+.admin-right {
+  background: rgba(12,49,73,0.95);
+  color: #fff;
+  text-align: center;
+}
+.admin-right img {
+  max-width: 390px;
+  margin-bottom: 20px;
+}
+.admin-right h2 { margin-bottom: 10px; color: #ccc; }
+.admin-right p { color: #ccc; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container, .worker-container, .admin-container {
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+  }
+}
+
+/* Limit form height */
+.sign-up-container form {
+  width: 100%;
+  max-width: 380px;   /* smaller width */
+  max-height: 450px;  /* reduce height */
+  overflow-y: auto;   /* add scroll if content exceeds */
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Inputs spacing */
+.sign-up-container form input {
+  margin: 10px 0;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Button alignment */
+.sign-up-container form button {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* ---------------- Back Button ---------------- */
+.back-btn {
+  position: fixed;      /* Fix it on screen */
+  top: 20px;            /* Distance from top */
+  left: 20px;           /* Distance from left */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1d3557;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;        /* Make sure it stays above everything */
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #2a74a2;
+}

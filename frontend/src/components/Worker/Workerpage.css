@@ -1,0 +1,30 @@
+.worker-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.worker-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.worker-container button {
+  padding: 10px 20px;
+  background-color: teal;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-link {
+  margin-top: 10px;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}

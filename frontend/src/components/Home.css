@@ -1,0 +1,171 @@
+/* Home.css */
+
+.home-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #222;
+}
+
+.main-content {
+  flex-grow: 1;
+  max-width: 1100px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.gov-banner {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.gov-image {
+  max-width: 480px;
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.gov-image:hover {
+  transform: scale(1.05);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #1a1a1a;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.news-section {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  max-width: 720px;
+  margin: 0 auto 30px;
+}
+
+.news-section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 18px;
+  font-weight: 600;
+  color: #111;
+}
+
+.news-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.news-list li {
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 30px;
+}
+
+
+.footer-section {
+  background-color: #49687d;
+  color: #ddd;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 15px 0;
+}
+
+.footer-section p {
+  margin: 6px 0;
+}
+
+.copy-rights {
+  background-color: #0c0c0c;
+  color: #aaa;
+  padding: 18px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #676464;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    margin: 20px auto 40px;
+    padding: 0 15px;
+  }
+
+  .gov-image {
+    max-width: 140px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .news-section {
+    padding: 20px 25px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .news-list li {
+    font-size: 1rem;
+  }
+}
+
+/* Welcome / login message */
+.welcome-msg {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.welcome-msg p {
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* Style for logged-in user message */
+.welcome-msg p strong {
+  color: #007BFF; /* Blue color for user email */
+}
+
+/* Style for warning (not logged-in) message */
+.welcome-msg p a {
+  color: #FF4136; /* Red color for login link */
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.welcome-msg p[style*="color: 'red'"] {
+  background-color: #ffe6e6; /* light red background */
+  border: 1px solid #ff4136;
+}
+
+

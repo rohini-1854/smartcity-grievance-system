@@ -1,0 +1,69 @@
+/* Header.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa; /* Light neutral background */
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+  /* Prevent any default margin causing scroll */
+  overflow-x: hidden;
+  /* Add padding-top equal or bigger than header height to avoid content hidden behind sticky header */
+  padding-top: 10px; /* Header height (50px + padding) + some buffer */
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #49687d; /* deep blue */
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  margin-top: -10px;
+  z-index: 1000;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.logo-section h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  user-select: none;
+  letter-spacing: 1.2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.nav-links a:hover {
+  background-color: #0073e6;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,115,230,0.4);
+}

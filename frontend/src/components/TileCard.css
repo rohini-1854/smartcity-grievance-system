@@ -1,0 +1,42 @@
+/* TileCard.css */
+
+.tile-card {
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  height: 200px;
+}
+
+.tile-card:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  background-color: #f9fafb;
+}
+
+.tile-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 18px;
+  transition: transform 0.3s ease;
+}
+
+.tile-card:hover .tile-image {
+  transform: scale(1.1);
+}
+
+.tile-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 600;
+  margin: 0;
+  user-select: none;
+}
