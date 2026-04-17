@@ -66,9 +66,18 @@ app.use('/api', geoRoutes);
 
 // MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/grievancesystem';
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB error:", err));
+
+console.log("📡 Attempting to connect to MongoDB...");
+
+mongoose.connect(MONGODB_URI, {
+  serverSelectionTimeoutMS: 5000 // fail faster so we can see the error
+})
+  .then(() => console.log("✅ MongoDB connected successfully to:", MONGODB_URI.split('@')[1]))
+  .catch((err) => {
+    console.error("❌ MongoDB connection error details:");
+    console.error("Error Name:", err.name);
+    console.error("Error Message:", err.message);
+  });
 
 
 
