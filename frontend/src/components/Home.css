@@ -134,9 +134,9 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 20px;
   }
 

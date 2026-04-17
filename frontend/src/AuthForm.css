@@ -61,7 +61,7 @@
 .sign-up-container {
   left: 0;
   width: 50%;
-  opacity: 1;   /* ✅ always visible */
+  opacity: 1;
   z-index: 2;
 }
 
@@ -176,8 +176,12 @@ form button:hover { background-color: #2a74a2; }
 }
 
 @media (max-width: 768px) {
+  .auth-wrapper {
+    padding: 20px 10px;
+  }
+
   .container {
-    width: 95%;
+    width: 100%;
     max-width: 100%;
     height: auto;
     min-height: auto;
@@ -185,20 +189,30 @@ form button:hover { background-color: #2a74a2; }
     position: relative;
     overflow: visible;
     padding-bottom: 20px;
+    display: block; /* Disable flex to force block flow */
   }
 
   .form-container {
-    position: relative;
-    width: 100%;
-    height: auto;
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    height: auto !important;
     transform: none !important;
     opacity: 1 !important;
     z-index: 1 !important;
     padding: 20px 0;
+    visibility: visible !important;
+  }
+
+  /* Ensure both forms show one after another on mobile toggled by state or just stack */
+  /* In this UI, they should probably stack if it's a "Proceed Plan" fix */
+  .sign-in-container, .sign-up-container {
+    width: 100% !important;
+    position: relative !important;
   }
 
   .overlay-container {
-    display: none; 
+    display: none !important; 
   }
 
   .role-switch {
@@ -206,10 +220,13 @@ form button:hover { background-color: #2a74a2; }
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 20px;
   }
 
   .role-switch button {
-    margin: 0;
+    margin: 5px;
+    font-size: 14px;
+    padding: 8px 15px;
   }
 
   .admin-left, .admin-right, .worker-left, .worker-right {
@@ -219,7 +236,8 @@ form button:hover { background-color: #2a74a2; }
   }
 
   .admin-right img, .worker-right img {
-    max-width: 200px;
+    max-width: 100%;
+    height: auto;
   }
 }
 
