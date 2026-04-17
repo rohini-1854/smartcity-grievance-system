@@ -275,16 +275,18 @@ export default function RegisterComplaint() {
       {step === 4 && (
         <div>
           <h3>Step 4: Review</h3>
-          <table>
-            <tbody>
-              {Object.entries(formData).map(([k, v]) => (
-                <tr key={k}>
-                  <td>{k}</td>
-                  <td>{v?.name || v}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="table-wrapper">
+            <table>
+              <tbody>
+                {Object.entries(formData).map(([k, v]) => (
+                  <tr key={k}>
+                    <td>{k}</td>
+                    <td>{v?.name || v}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <button onClick={handleBack}>Back</button>
           <button onClick={handleSubmit}>Submit</button>
         </div>

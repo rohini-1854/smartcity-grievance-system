@@ -51,6 +51,29 @@ body {
   gap: 25px;
 }
 
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    padding: 10px 15px;
+    gap: 15px;
+  }
+  
+  .logo-section h1 {
+    font-size: 1.4rem;
+  }
+  
+  .nav-links {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+}
+
 .nav-links a {
   color: #fff;
   text-decoration: none;

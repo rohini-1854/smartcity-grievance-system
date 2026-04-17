@@ -114,7 +114,9 @@
   }
 
   .gov-image {
-    max-width: 140px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
   }
 
   .section-title {
@@ -122,8 +124,13 @@
   }
 
   .news-section {
-    padding: 20px 25px;
+    padding: 15px;
     max-width: 100%;
+  }
+
+  .news-list li {
+    font-size: 1rem;
+    padding-left: 20px;
   }
 }
 

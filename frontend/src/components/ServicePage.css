@@ -259,7 +259,44 @@ details summary:hover {
 
 /* ================= Responsive ================= */
 @media (max-width: 768px) {
-  .filters { flex-direction: column; }
-  .complaint-card { width: 100%; padding: 20px 25px; }
-  .nav-center { flex-direction: column; gap: 10px; margin-top: 10px; }
+  .service-page {
+    padding: 15px;
+    margin: 10px;
+  }
+  
+  .filters { 
+    flex-direction: column; 
+    gap: 10px;
+  }
+  
+  .filters input[type="text"], .filters select {
+    width: 100%;
+  }
+
+  .complaint-card { 
+    width: 100%; 
+    padding: 15px 20px; 
+  }
+
+  .nav-center { 
+    flex-direction: column; 
+    gap: 10px; 
+    margin: 10px 0;
+  }
+
+  .top-navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .status-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .status-btn {
+    flex: 1;
+    min-width: 120px;
+  }
 }

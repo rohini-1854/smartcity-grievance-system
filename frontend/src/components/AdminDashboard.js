@@ -154,34 +154,36 @@ const navigate = useNavigate();
       {activeTab === "feedback" && (
         <section>
           <h2 style={{ color: '#1d3557', fontWeight: 600 }}>💬 User Feedback</h2>
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>User Email</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Feedback</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Sent At</th>
-              </tr>
-            </thead>
-            <tbody>
-            {messages.length > 0 ? (
-              messages
-                .filter((m) => m.role === "user") //  only show user feedback
-                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) //  latest first
-                .map((m) => (
-                  <tr key={m._id}>
-                    <td>{m.email ? `${m.name || ""} (${m.email})` : "—"}</td>
-                    <td>{m.message}</td>
-                    <td>{new Date(m.createdAt).toLocaleString()}</td>
-                  </tr>
-                ))
-            ) : (
-
+          <div className="data-table-wrapper">
+            <table className="data-table">
+              <thead>
                 <tr>
-                  <td colSpan="3">No feedback messages.</td>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>User Email</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Feedback</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Sent At</th>
                 </tr>
-              )}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+              {messages.length > 0 ? (
+                messages
+                  .filter((m) => m.role === "user") //  only show user feedback
+                  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) //  latest first
+                  .map((m) => (
+                    <tr key={m._id}>
+                      <td>{m.email ? `${m.name || ""} (${m.email})` : "—"}</td>
+                      <td>{m.message}</td>
+                      <td>{new Date(m.createdAt).toLocaleString()}</td>
+                    </tr>
+                  ))
+              ) : (
+  
+                  <tr>
+                    <td colSpan="3">No feedback messages.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
 
@@ -189,33 +191,35 @@ const navigate = useNavigate();
       {activeTab === "workermessages" && (
         <section>
           <h2 style={{ color: '#1d3557', fontWeight: 600 }} >📨 Worker Messages</h2>
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Worker Name / Email</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Message</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Sent At</th>
-              </tr>
-            </thead>
-            <tbody>
-              {messages.filter(m => m.role === "worker").length > 0 ? (
-                messages
-                  .filter(m => m.role === "worker")
-                  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                  .map((m) => (
-                    <tr key={m._id}>
-                      <td>{m.name ? `${m.name} (${m.email})` : m.email}</td>
-                      <td>{m.message}</td>
-                      <td>{new Date(m.createdAt).toLocaleString()}</td>
-                    </tr>
-                  ))
-              ) : (
+          <div className="data-table-wrapper">
+            <table className="data-table">
+              <thead>
                 <tr>
-                  <td colSpan="3">No messages from workers.</td>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Worker Name / Email</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Message</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Sent At</th>
                 </tr>
-              )}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {messages.filter(m => m.role === "worker").length > 0 ? (
+                  messages
+                    .filter(m => m.role === "worker")
+                    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                    .map((m) => (
+                      <tr key={m._id}>
+                        <td>{m.name ? `${m.name} (${m.email})` : m.email}</td>
+                        <td>{m.message}</td>
+                        <td>{new Date(m.createdAt).toLocaleString()}</td>
+                      </tr>
+                    ))
+                ) : (
+                  <tr>
+                    <td colSpan="3">No messages from workers.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
 
@@ -224,24 +228,26 @@ const navigate = useNavigate();
       {activeTab === "users" && (
         <section>
           <h2 style={{ color: '#1d3557', fontWeight: 600 }} >🧑‍💻 Registered Users</h2>
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Name</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Email</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Signup Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map(u => (
-                <tr key={u._id}>
-                  <td>{u.name}</td>
-                  <td>{u.email}</td>
-                  <td>{u.createdAt ? new Date(u.createdAt).toLocaleString() : 'No date'}</td>
+          <div className="data-table-wrapper">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Name</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Email</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Signup Time</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {users.map(u => (
+                  <tr key={u._id}>
+                    <td>{u.name}</td>
+                    <td>{u.email}</td>
+                    <td>{u.createdAt ? new Date(u.createdAt).toLocaleString() : 'No date'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
       )}
 
@@ -255,32 +261,34 @@ const navigate = useNavigate();
           >
             ➕ Add Worker
           </button>
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Name</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Email</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Department</th>
-                <th style={{ color: 'black', fontWeight: 'bold' }}>Signup Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {workerData.length > 0 ? (
-                workerData.map((worker, index) => (
-                  <tr key={index}>
-                    <td>{worker.name}</td>
-                    <td>{worker.email}</td>
-                    <td>{worker.department || '—'}</td>
-                    <td>{worker.createdAt ? new Date(worker.createdAt).toLocaleString() : 'No date'}</td>
-                  </tr>
-                ))
-              ) : (
+          <div className="data-table-wrapper">
+            <table className="data-table">
+              <thead>
                 <tr>
-                  <td colSpan="4">No workers registered yet.</td>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Name</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Email</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Department</th>
+                  <th style={{ color: 'black', fontWeight: 'bold' }}>Signup Time</th>
                 </tr>
-              )}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {workerData.length > 0 ? (
+                  workerData.map((worker, index) => (
+                    <tr key={index}>
+                      <td>{worker.name}</td>
+                      <td>{worker.email}</td>
+                      <td>{worker.department || '—'}</td>
+                      <td>{worker.createdAt ? new Date(worker.createdAt).toLocaleString() : 'No date'}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4">No workers registered yet.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
           {/* Worker Registration Modal */}
           {showWorkerForm && (
             <div className="modal-overlay">

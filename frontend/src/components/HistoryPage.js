@@ -35,30 +35,32 @@ const HistoryPage = () => {
       {complaints.length === 0 ? (
         <p>No complaints submitted yet.</p>
       ) : (
-        <table border="1" cellPadding="8">
-          <thead>
-            <tr>
-              <th>Issue</th>
-              <th>Location</th>
-              <th>Department</th>
-              <th>Status</th>
-              <th>Assigned To</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {complaints.map(c => (
-              <tr key={c._id}>
-                <td>{c.issueType}</td>
-                <td>{c.location}</td>
-                <td>{c.department || '-'}</td>
-                <td>{c.status}</td>
-                <td>{c.assignedTo ? c.assignedTo.name : '-'}</td>
-                <td>{new Date(c.createdAt).toLocaleString()}</td>
+        <div className="table-wrapper">
+          <table border="1" cellPadding="8">
+            <thead>
+              <tr>
+                <th>Issue</th>
+                <th>Location</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th>Time</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {complaints.map(c => (
+                <tr key={c._id}>
+                  <td>{c.issueType}</td>
+                  <td>{c.location}</td>
+                  <td>{c.department || '-'}</td>
+                  <td>{c.status}</td>
+                  <td>{c.assignedTo ? c.assignedTo.name : '-'}</td>
+                  <td>{new Date(c.createdAt).toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

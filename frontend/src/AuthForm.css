@@ -166,84 +166,69 @@ form button {
 }
 form button:hover { background-color: #2a74a2; }
 
-/* Worker Container */
-.worker-container {
-  display: flex;
-  width: 900px;
-  height: 480px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 0 25px rgba(0,0,0,0.15);
-}
-.worker-left, .worker-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-}
-.worker-left form { width: 80%; }
-.worker-right {
-  background:rgba(12,49,73,0.95);
-  text-align: center;
-  color: #fff;
-}
-.worker-right img {
-  max-width: 390px;
-  margin-bottom: 20px;
-}
-.worker-right h2 { color: #ccc; }
-.worker-right p { color: #ccc;  }
-
-/* Admin Container */
-.admin-container {
-  display: flex;
-  width: 900px;
-  height: 480px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 0 25px rgba(0,0,0,0.15);
-}
-.admin-left, .admin-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-}
-.admin-left {  }
-.admin-form { width: 80%; }
-.admin-right {
-  background: rgba(12,49,73,0.95);
-  color: #fff;
-  text-align: center;
-}
-.admin-right img {
-  max-width: 390px;
-  margin-bottom: 20px;
-}
-.admin-right h2 { margin-bottom: 10px; color: #ccc; }
-.admin-right p { color: #ccc; }
-
 /* Responsive */
+@media (max-width: 1024px) {
+  .worker-container, .admin-container {
+      width: 95%;
+      height: auto;
+      flex-direction: column;
+  }
+}
+
 @media (max-width: 768px) {
-  .container, .worker-container, .admin-container {
-    flex-direction: column;
+  .container {
     width: 95%;
+    max-width: 100%;
     height: auto;
+    min-height: auto;
+    flex-direction: column;
+    position: relative;
+    overflow: visible;
+    padding-bottom: 20px;
+  }
+
+  .form-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+    padding: 20px 0;
+  }
+
+  .overlay-container {
+    display: none; 
+  }
+
+  .role-switch {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .role-switch button {
+    margin: 0;
+  }
+
+  .admin-left, .admin-right, .worker-left, .worker-right {
+    width: 100%;
+    padding: 20px;
+    height: auto;
+  }
+
+  .admin-right img, .worker-right img {
+    max-width: 200px;
   }
 }
 
 /* Limit form height */
 .sign-up-container form {
   width: 100%;
-  max-width: 380px;   /* smaller width */
-  max-height: 450px;  /* reduce height */
-  overflow-y: auto;   /* add scroll if content exceeds */
+  max-width: 380px;
+  max-height: env(safe-area-inset-bottom, 500px);
+  overflow-y: auto;
   margin: 0 auto;
   padding: 20px;
   border-radius: 8px;
