@@ -612,11 +612,11 @@ const AuthForm = () => {
         navigate("/home"); // or redirectPath
       } else {
         console.error("Signup failed:", data);
-        alert("Signup failed: " + (data.message || "Unknown error"));
+        alert("Signup failed: " + (data.message || data.error || "Unknown error"));
       }
-    } catch (err) {
-      console.error("Fetch error:", err);
-      alert("Signup failed: " + err.message);
+    } catch (error) {
+      console.error("Signup error:", error);
+      alert("Signup failed: " + error.message);
     }
   };
 
